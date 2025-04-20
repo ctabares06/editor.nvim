@@ -12,6 +12,7 @@ return {
   cmd = 'Neotree',
   keys = {
     { '<leader>e', ':Neotree filesystem float<CR>', desc = 'NeoTree: [E]xpand', silent = true },
+    { '<leader>nr', ':Neotree filesystem float dir=' .. vim.fn.stdpath 'config' .. '<CR>', desc = 'NeoTree: [E]xpand', silent = true },
   },
   opts = {
     filesystem = {
