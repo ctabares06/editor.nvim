@@ -357,7 +357,7 @@ require('lazy').setup({
       }
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      local servers = require 'kickstart.config.servers'
+      local servers = require 'config.servers'
 
       -- Ensure the servers and tools above are installed
       --
@@ -542,10 +542,10 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'kickstart.plugins.mini',
-  require 'kickstart.plugins.snacks',
+  require 'plugins.neo-tree',
+  require 'plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'plugins.mini',
+  require 'plugins.snacks',
 }, {
   ui = {
     icons = {},
