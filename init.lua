@@ -184,9 +184,6 @@ require('lazy').setup({
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
       },
       'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
@@ -198,6 +195,10 @@ require('lazy').setup({
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
         --  All the info you're looking for is in `:help telescope.setup()`
+        defaults = {
+          initial_mode = 'normal',
+          preview = false,
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
