@@ -64,4 +64,6 @@ return {
       },
     },
   },
+  eslint_d = {},
+  prettierd = {},
 }
