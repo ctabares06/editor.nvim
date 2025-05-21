@@ -1,5 +1,5 @@
 return {
-  { -- Linting
+  { -- Add a pattern for each language to watch with the linter
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
@@ -11,14 +11,12 @@ return {
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
       }
-
-      local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+      vim.api.nvim_create_augroup('EslintConfGroup', { clear = true })
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-        group = lint_augroup,
+        group = 'EslintConfGroup',
+        pattern = { '*.js', '*.ts', '*.jsx', '*.tsx' },
         callback = function()
-          if vim.opt_local.modifiable:get() then
-            lint.try_lint()
-          end
+          require('config.eslint_conf').try_eslint_if_config_exists(lint)
         end,
       })
     end,

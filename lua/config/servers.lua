@@ -15,7 +15,6 @@ return {
   },
   stylua = {},
   ts_ls = {
-    root_dir = lspConfig.util.root_pattern('tsconfig.js', 'jsconfig.js', 'package.json'),
     init_options = {
       preferences = {
         disableSuggestions = true,
@@ -64,6 +63,4 @@ return {
       },
     },
   },
-  eslint_d = {},
-  prettierd = {},
 }
