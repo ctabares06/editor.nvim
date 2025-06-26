@@ -19,8 +19,8 @@ return {
           preview = false,
           mappings = {
             n = {
-              ['<leader>sv'] = 'select_vertical',
-              ['<leader>sh'] = 'select_horizontal',
+              ['<localleader>sv'] = 'select_vertical',
+              ['<localleader>sh'] = 'select_horizontal',
             },
           },
         },

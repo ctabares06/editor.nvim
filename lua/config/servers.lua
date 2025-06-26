@@ -1,4 +1,3 @@
-local lspConfig = require 'lspconfig'
 local mason_registry = require 'mason-registry'
 local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path()
 
@@ -28,6 +27,22 @@ return {
       },
     },
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  },
+  biome = {
+    filetypes = {
+      'astro',
+      'css',
+      'graphql',
+      'javascript',
+      'javascriptreact',
+      'json',
+      'jsonc',
+      'svelte',
+      'typescript',
+      'typescript.tsx',
+      'typescriptreact',
+      'vue',
+    },
   },
   emmet_ls = {
     filetypes = {

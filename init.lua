@@ -5,7 +5,7 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -102,6 +102,16 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set("n", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>",
+  { noremap = true, silent = true, desc = "[A]gent [C]hat" })
+
+vim.keymap.set("v", "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>",
+  { noremap = true, silent = true, desc = "[A]gent [C]hat" })
+
+vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionActions<cr>",
+  { noremap = true, silent = true, desc = "[A]gent [A]ll" })
+
+vim.keymap.set("v", "<localleader>a", "<cmd>CodeCompanionAdd<cr>", { desc = "[A]dd code", noremap = true, silent = true })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -170,9 +180,12 @@ require('lazy').setup({
       },
       -- Document existing key chains
       spec = {
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>s',       group = '[S]earch' },
+        { '<leader>t',       group = '[T]oggle' },
+        { '<leader>h',       group = 'Git [H]unk',         mode = { 'n', 'v' } },
+        { '<leader>a',       group = "[A]gent",            mode = { 'n', 'v' } },
+        { '<localleader>sv', desc = "[S]plit [V]ertical" },
+        { '<localleader>sh', desc = "[S]plit [H]orizontal" },
       },
     },
   },
@@ -194,7 +207,7 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
     },
@@ -359,6 +372,7 @@ require('lazy').setup({
   require 'plugins.mini',
   require 'plugins.snacks',
   require 'plugins.theme',
+  require 'plugins.agent',
 }, {
   ui = {
     icons = {},

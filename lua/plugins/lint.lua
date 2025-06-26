@@ -4,19 +4,14 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
-      lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
-        javascriptreact = { 'eslint_d' },
-        typescriptreact = { 'eslint_d' },
-      }
       vim.api.nvim_create_augroup('EslintConfGroup', { clear = true })
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-        group = 'EslintConfGroup',
-        pattern = { '*.js', '*.ts', '*.jsx', '*.tsx' },
-        callback = function()
-          require('config.eslint_conf').try_eslint_if_config_exists(lint)
+        callback = function(args)
+          local linter = require('config.linter_detect').map_linter(args)
+
+          if linter then
+            lint.try_lint('lua_ls')
+          end
         end,
       })
     end,
