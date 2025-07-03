@@ -10,7 +10,7 @@ return {
           local linter = require('config.linter_detect').map_linter(args)
 
           if linter then
-            lint.try_lint('lua_ls')
+            lint.try_lint(linter)
           end
         end,
       })
