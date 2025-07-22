@@ -2,6 +2,11 @@ local mason_registry = require 'mason-registry'
 local vue_lsp_path = mason_registry.get_package('vue-language-server'):get_install_path()
 
 return {
+  jsonls = {
+    filetypes = {
+      'json'
+    }
+  },
   lua_ls = {
     settings = {
       Lua = {

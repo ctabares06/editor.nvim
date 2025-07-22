@@ -35,6 +35,11 @@ local languages = {
       return jsts.get_formatter(bufnr)
     end,
   },
+  json = {
+    formatter = function(bufnr)
+      return jsts.get_formatter(bufnr)
+    end,
+  },
   lua = {
     formatter = function()
       return 'stylua'
