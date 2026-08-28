@@ -381,7 +381,8 @@ require('lazy').setup({
   require 'plugins.snacks',
   require 'plugins.theme',
   require 'plugins.agent',
-  require 'plugins.css-color-highlight'
+  require 'plugins.css-color-highlight',
+  require 'plugins.jdtls'
 }, {
   ui = {
     icons = {},
