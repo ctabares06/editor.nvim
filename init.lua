@@ -80,6 +80,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = '[S]ave' })
 
+vim.keymap.set('n', '<C-q>', '<cmd>bd<CR>', { desc = '[Q]uit Buffer' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -328,6 +329,9 @@ require('lazy').setup({
         automatic_installation = false,
         handlers = {
           function(server_name)
+            if server_name == "jdtls" then
+              return
+            end
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
@@ -377,6 +381,7 @@ require('lazy').setup({
   require 'plugins.snacks',
   require 'plugins.theme',
   require 'plugins.agent',
+  require 'plugins.css-color-highlight'
 }, {
   ui = {
     icons = {},
